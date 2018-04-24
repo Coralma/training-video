@@ -1,0 +1,500 @@
+<div class="table-responsive table-bordered bs-grid" context-menu="onIgnoreRightClick()"
+     data-target="ignoreRightClickEle">
+  <table class="table table-head table-bordered table-hover"
+         style="table-layout:fixed;margin-bottom:0px; width:100%;border:none;">
+    <thead>
+    <tr>
+      <th class="grid-checkbox-cell">
+        <input type="checkbox" ng-click="selectAll(isSelectAll)" ng-model="isSelectAll" ng-checked="selectAllFlag"
+               ng-disabled="options.disSelectable">
+      </th>
+      <!--displayIcon-->
+      <th style="width: 40px;">
+        <div></div>
+      </th>
+      <!--displayOrder-->
+      <th style="width: 35px;">
+        <div>序号</div>
+      </th>
+      <!--operationType-->
+      <th style="width: 52px;">
+        <div>操作</div>
+      </th>
+      <!--itemName-->
+      <th>
+        <div>损失项目</div>
+      </th>
+      <!--partNo-->
+      <th>
+        <div>配件编号</div>
+      </th>
+      <!--partType-->
+      <th style="width: 70px;">
+        <div>配件渠道</div>
+      </th>
+      <!--unitPriceAfterDiscount-->
+      <th style="width: 80px;">
+        <div>折后单价</div>
+      </th>
+      <!--partQuantity-->
+      <th style="width: 50px;">
+        <div>用量</div>
+      </th>
+      <!--partFeeAfterDiscount-->
+      <th style="width: 85px;">
+        <div>折后材料费</div>
+      </th>
+      <!--laborType-->
+      <th style="width: 52px">
+        <div>工种</div>
+      </th>
+      <!--removeHour-->
+      <th ng-if="options.laborPaintVisible" style="width: 61px">
+        <div>拆装</div>
+      </th>
+      <!--removeFeeAfterDiscount-->
+      <th style="width: 80px">
+        <div>折后拆装费</div>
+      </th>
+      <!--laborHour-->
+      <th ng-if="options.laborPaintVisible" style="width: 55px">
+        <div>维修</div>
+      </th>
+      <!--laborFeeAfterDiscount-->
+      <th style="width: 80px">
+        <div>折后维修费</div>
+      </th>
+      <!--paintLaborHour-->
+      <th ng-if="options.laborPaintVisible" style="width: 45px">
+        <div>喷漆</div>
+      </th>
+      <!--paintFeeAfterDiscount-->
+      <th style="width: 80px">
+        <div>折后喷漆费</div>
+      </th>
+      <!--recycleFlag-->
+      <th style="width: 35px">
+        <div>回收</div>
+      </th>
+      <!--salvageAndDepreciation-->
+      <th style="width: 85px">
+        <div>残值/折旧</div>
+      </th>
+      <!--attachment-->
+      <th style="width: 35px">
+        <div>照片</div>
+      </th>
+      <!--remark-->
+      <th style="width: 35px">
+        <div>备注</div>
+      </th>
+    </tr>
+    </thead>
+  </table>
+  <div style="overflow-y:scroll;">
+    <table class="table table-body table-bordered table-hover"
+           ng-class="enableCategory ? 'category-table-striped' : 'table-striped'"
+           style="table-layout:fixed;margin-bottom:0px;margin-top: -29px;">
+      <thead>
+      <tr>
+        <th class="grid-checkbox-cell">
+          <input type="checkbox" ng-click="selectAll(isSelectAll)" ng-model="isSelectAll" ng-checked="selectAllFlag"
+                 ng-disabled="options.disSelectable">
+        </th>
+        <!--displayIcon-->
+        <th style="width: 40px;">
+          <div></div>
+        </th>
+        <!--displayOrder-->
+        <th style="width: 35px;">
+          <div>序号</div>
+        </th>
+        <!--operationType-->
+        <th style="width: 52px;">
+          <div>操作</div>
+        </th>
+        <!--itemName-->
+        <th>
+          <div>损失项目</div>
+        </th>
+        <!--partNo-->
+        <th>
+          <div>配件编号</div>
+        </th>
+        <!--partType-->
+        <th style="width: 70px;">
+          <div>配件渠道</div>
+        </th>
+        <!--unitPriceAfterDiscount-->
+        <th style="width: 80px;">
+          <div>折后单价</div>
+        </th>
+        <!--partQuantity-->
+        <th style="width: 50px;">
+          <div>用量</div>
+        </th>
+        <!--partFeeAfterDiscount-->
+        <th style="width: 85px;">
+          <div>折后材料费</div>
+        </th>
+        <!--laborType-->
+        <th style="width: 52px">
+          <div>工种</div>
+        </th>
+        <!--removeHour-->
+        <th ng-if="options.laborPaintVisible" style="width: 61px">
+          <div>拆装</div>
+        </th>
+        <!--removeFeeAfterDiscount-->
+        <th style="width: 80px">
+          <div>折后拆装费</div>
+        </th>
+        <!--laborHour-->
+        <th ng-if="options.laborPaintVisible" style="width: 55px">
+          <div>维修</div>
+        </th>
+        <!--laborFeeAfterDiscount-->
+        <th style="width: 80px">
+          <div>折后维修费</div>
+        </th>
+        <!--paintLaborHour-->
+        <th ng-if="options.laborPaintVisible" style="width: 45px">
+          <div>喷漆</div>
+        </th>
+        <!--paintFeeAfterDiscount-->
+        <th style="width: 80px">
+          <div>折后喷漆费</div>
+        </th>
+        <!--recycleFlag-->
+        <th style="width: 35px">
+          <div>回收</div>
+        </th>
+        <!--salvageAndDepreciation-->
+        <th style="width: 85px">
+          <div>残值/折旧</div>
+        </th>
+        <!--attachment-->
+        <th style="width: 35px">
+          <div>照片</div>
+        </th>
+        <!--remark-->
+        <th style="width: 35px">
+          <div>备注</div>
+        </th>
+      </tr>
+      </thead>
+
+      <tbody
+          ng-repeat="row in rows | filter:enableCategory ? {category:'!工时扣减'} : {category:'no-category'} track by row.category">
+      <tr ng-dblclick=" row.initStatus=!row.initStatus" ng-if="enableCategory" class="category-tr">
+        <td colspan="{{options.laborPaintVisible ? 21:18}}">
+          <i class="glyphicon panel-icon"
+             ng-class="{'glyphicon-chevron-down': row.initStatus, 'glyphicon-chevron-right': !row.initStatus}"
+             ng-click="row.initStatus=!row.initStatus"></i><span class="category-title">{{ row.category }}</span>
+        </td>
+      </tr>
+      <tr ng-repeat="item in row.items | filter:{partCategoryId:'!-2'} track by $id(item)"
+          ng-class="(item.rowHighlight||item==mouseClickedRow) ? 'row-highlight' : ''" ng-show="row.initStatus"
+          context-menu="onRightClick(item)" data-target="rowMenu" ng-click="mouseClickRow(item)">
+        <td class="grid-checkbox-cell">
+          <input type="checkbox" ng-model="item.selection" ng-click="selectRow(row)"
+                 ng-disabled="options.disSelectable">
+        </td>
+        <!--displayIcon-->
+        <td style="word-break:break-all;">
+          <span class="" style="padding:0px;display: inline-block;"
+                ng-bind-html="appScope.claimGridItemsCommon.initItemWarning(item, null)"></span>
+          <span class="totallossIco" title="差异" ng-if="appScope.isShowSnap(item)"
+                ng-mouseenter="appScope.showItemSnapShot($event,item, false)"
+                ng-mouseleave="appScope.hideItemSnapShot(false)"></span>
+          <span class="snapDeleteIco" title="删除" ng-if="appScope.isShowDelSnap(item)"></span>
+        </td>
+        <!--displayOrder-->
+        <td style="word-break:break-all;">
+          <div class="text-align-center"
+               title="扣减工时:{{item.itemDeductionLaborHour}}, 扣减工时费:{{item.itemDeductionLaborFee}}">{{item.displayOrder}}
+          </div>
+        </td>
+        <!--operationType-->
+        <td style="word-break:break-all;">
+          <drop-down-field ng-model="item.operationType" class="operationType"
+                           code-type="{{(item.operationType != 05 && item.submitFlag == 1)?'CD0041':'CD0024'}}"
+                           ng-disabled="!appScope.claimGridItemsCommon.isColumnEditable(item, 'operationType', appScope.itemReadOnly)"
+                           on-change="appScope.afterCellEdit(item,'operationType',item.operationType,item._old_operationType, item.$$hashKey)"
+                           last-value="item._old_operationType"
+                           control-name="{{'operationType_'+ item.estimateUnitId }}"
+                           validation-trigger="[
+                                   '{{'unitPriceAfterDiscount_'+ item.estimateUnitId }}',
+                                   '{{'laborHour_'+ item.estimateUnitId }}',
+                                   '{{'laborFeeAfterDiscount_'+ item.estimateUnitId }}',
+                                   '{{'removeHour_'+ item.estimateUnitId }}',
+                                   '{{'removeFeeAfterDiscount_'+ item.estimateUnitId }}',
+                                   '{{'paintLaborHour_'+ item.estimateUnitId }}',
+                                   '{{'paintFeeAfterDiscount_'+ item.estimateUnitId }}'
+                              ]">
+          </drop-down-field>
+        </td>
+        <!--itemName-->
+        <td style="word-break:break-all;" ng-init="appScope.initGridColumn(item, 'itemName');"
+            ng-click="appScope.changeCellEditStatus(item, 'itemName');">
+          <div in-grid class="cell" title="{{item.itemName}}" control-name="{{'itemName_'+ item.estimateUnitId }}">
+            <div style="height: 30px;"></div>
+            <div style=" word-wrap: break-word;" ng-show="item.$_label_itemName">{{ item.itemName }}</div>
+            <input ng-show="!item.$_label_itemName" grid-focus="!item.$_label_itemName" type="text"
+                   ng-model="item.itemName" class="itemName"
+                   ng-disabled="appScope.itemReadOnly"
+                   ng-blur="appScope.afterCellEdit(item,'itemName',item.itemName,item._old_itemName);appScope.openPartItemPopPanel($event, item, 'itemName');appScope.changeCellLabelStatus(item, 'itemName');"
+                />
+          </div>
+        </td>
+        <!--partNo-->
+        <td style="word-break:break-all;" ng-init="appScope.initGridColumn(item, 'partNo');"
+            ng-click="appScope.changeCellEditStatus(item, 'partNo');">
+          <div in-grid class="cell" title="{{item.partNo}}" control-name="{{'partNo_'+ item.estimateUnitId }}">
+            <div style="height: 30px;"></div>
+            <div style=" word-wrap: break-word;" ng-if="item.$_label_partNo">{{item.partNo }}</div>
+            <input ng-if="!item.$_label_partNo" grid-focus="!item.$_label_partNo" type="text" ng-model="item.partNo"
+                   class="partNo" ng-disabled="appScope.itemReadOnly"
+                   ng-blur="appScope.afterCellEdit(item,'partNo',item.partNo,item._old_partNo);appScope.openPartItemPopPanel($event, item, 'partNo');appScope.changeCellLabelStatus(item, 'partNo');">
+            </input>
+          </div>
+        </td>
+        <!--配件渠道-->
+        <td style="word-break:break-all;">
+          <drop-down-field ng-model="item.partType" class="partType"
+                           option-list="appScope.CLAIMMODEL.repairFactoryInfo.discountRateList"
+                           ng-disabled="!appScope.claimGridItemsCommon.isColumnEditable(item, 'partType', appScope.itemReadOnly)"
+                           on-change="appScope.afterCellEdit(item,'partType',item.partType,item._old_partType)"
+                           last-value="item._old_partType">
+          </drop-down-field>
+        </td>
+        <!--折后单价-->
+        <td ng-init="appScope.initGridColumn(item, 'unitPriceAfterDiscount');"
+            ng-click="appScope.changeCellEditStatus(item, 'unitPriceAfterDiscount');">
+          <div in-grid class="cell cell-right" title="{{item.unitPriceAfterDiscount| currency:''}}"
+               control-name="{{'unitPriceAfterDiscount_'+ item.estimateUnitId }}">
+            <div style="height: 30px;"></div>
+            <div ng-if="item.$_label_unitPriceAfterDiscount || appScope.itemReadOnly">{{item.unitPriceAfterDiscount| currency:''}}</div>
+            <number-field ng-show="!appScope.itemReadOnly" ng-if="!item.$_label_unitPriceAfterDiscount" grid-focus="!item.$_label_unitPriceAfterDiscount"
+                          min="0" max="9999999" decimal="2" ng-model="item.unitPriceAfterDiscount"
+                          field-Class="form-control ccc-field textAlignRight unitPriceAfterDiscount unitPriceAfterDiscountSelector"
+                          on-blur="appScope.afterCellEdit(item,'unitPriceAfterDiscount',item.unitPriceAfterDiscount,item._old_unitPriceAfterDiscount);appScope.changeCellLabelStatus(item, 'unitPriceAfterDiscount');"
+                          last-value="item._old_unitPriceAfterDiscount"
+                          ng-disabled="appScope.itemReadOnly">
+            </number-field>
+          </div>
+        </td>
+        <!--用量-->
+        <td ng-init="appScope.initGridColumn(item, 'partQuantity');"
+            ng-click="appScope.changeCellEditStatus(item, 'partQuantity');">
+          <div in-grid class="cell cell-right"
+               title="{{item.partQuantity | number:$filter(partQtyDecimalFilter)(item.operationType)}}"
+               control-name="{{'partQuantity_'+ item.estimateUnitId }}">
+            <div style="height: 30px;"></div>
+            <span ng-if="item.$_label_partQuantity">{{item.partQuantity | partQtyNumberFilter:item.operationType}}</span>
+            <number-field ng-if="!item.$_label_partQuantity" grid-focus="!item.$_label_partQuantity" min="0" max="999"
+                          ng-model="item.partQuantity" decimal="{{item.operationType|partQtyDecimalFilter}}"
+                          title="{{item.partQuantity}}"
+                          class="ccc-field"
+                          field-Class="form-control ccc-field textAlignRight partQuantity partQuantitySelector"
+                          on-blur="appScope.afterCellEdit(item,'partQuantity',item.partQuantity,item._old_partQuantity);appScope.changeCellLabelStatus(item, 'partQuantity');"
+                          last-value="item._old_partQuantity"
+                          ng-disabled="appScope.itemReadOnly">
+            </number-field>
+          </div>
+        </td>
+        <!--折后材料费-->
+        <td>
+          <div in-grid class="cell cell-right" title="{{item.partFeeAfterDiscount|number:1}}">
+            <div style="height: 30px;"></div>
+            <span ng-if="item.$_label_partFeeAfterDiscount">{{item.partFeeAfterDiscount|number:1}}</span>
+            <number-field ng-if="!item.$_label_partFeeAfterDiscount"
+                          min="0" max="999"
+                          ng-disabled="true"
+                          ng-model="item.partFeeAfterDiscount" decimal="2"
+                          class="ccc-field" field-Class="form-control ccc-field textAlignRight">
+            </number-field>
+          </div>
+          <!--<div in-grid class="cell cell-right" title="{{item.partFeeAfterDiscount|currency:''}}">-->
+          <!--<div style="line-height: 30px;">{{item.partFeeAfterDiscount|currency:''}}</div>-->
+          <!--</div>-->
+        </td>
+        <!--工种-->
+        <td style="word-break:break-all;">
+          <drop-down-field ng-model="item.laborType" class="laborType" code-type="CD0039"
+                           control-name="{{'laborType_'+ item.estimateUnitId }}"
+                           ng-disabled="!appScope.claimGridItemsCommon.isColumnEditable(item, 'laborType', appScope.itemReadOnly)"
+                           on-change="appScope.afterCellEdit(item,'laborType',item.laborType,item._old_laborType)"
+                           in-grid></drop-down-field>
+        </td>
+        <!--拆装-->
+        <td ng-if="options.laborPaintVisible" ng-init="appScope.initGridColumn(item, 'removeHour');"
+            ng-click="appScope.changeCellEditStatus(item, 'removeHour');">
+          <div in-grid class="cell cell-right" title="{{item.removeHour|number:1}}"
+               control-name="{{'removeHour_'+ item.estimateUnitId }}">
+            <div style="height: 30px;"></div>
+            <span ng-if="item.$_label_removeHour">{{item.removeHour|number:1}}</span>
+            <number-field ng-if="!item.$_label_removeHour" grid-focus="!item.$_label_removeHour" min="0" max="999"
+                          ng-model="item.removeHour" decimal="1"
+                          class="ccc-field" field-Class="form-control ccc-field textAlignRight laborHour"
+                          on-blur="appScope.afterCellEdit(item,'removeHour',item.removeHour,item._old_removeHour);appScope.changeCellLabelStatus(item, 'removeHour');"
+                          last-value="item._old_removeHour"
+                          ng-disabled="appScope.itemReadOnly">
+            </number-field>
+          </div>
+        </td>
+        <!--折后拆装费-->
+        <td ng-init="appScope.initGridColumn(item, 'removeFeeAfterDiscount');"
+            ng-click="appScope.changeCellEditStatus(item, 'removeFeeAfterDiscount');">
+          <div in-grid class="cell cell-right" title="{{item.removeFeeAfterDiscount|currency:''}}"
+               control-name="{{'removeFeeAfterDiscount_'+ item.estimateUnitId }}">
+            <div style="height: 30px;"></div>
+            <span ng-if="item.$_label_removeFeeAfterDiscount">{{item.removeFeeAfterDiscount|currency:''}}</span>
+            <number-field ng-if="!item.$_label_removeFeeAfterDiscount" grid-focus="!item.$_label_removeFeeAfterDiscount"
+                          min="0" max="9999999" ng-model="item.removeFeeAfterDiscount" decimal="2"
+                          field-Class="form-control ccc-field textAlignRight" class="ccc-field"
+                          on-blur="appScope.afterCellEdit(item,'removeFeeAfterDiscount',item.removeFeeAfterDiscount,item._old_removeFeeAfterDiscount);appScope.changeCellLabelStatus(item, 'removeFeeAfterDiscount');"
+                          last-value="item._old_removeFeeAfterDiscount"></number-field>
+          </div>
+        </td>
+        <!--维修-->
+        <td ng-if="options.laborPaintVisible" ng-init="appScope.initGridColumn(item, 'laborHour');"
+            ng-click="appScope.changeCellEditStatus(item, 'laborHour');">
+          <div in-grid class="cell cell-right" title="{{item.laborHour|number:1}}"
+               control-name="{{'laborHour_'+ item.estimateUnitId }}">
+            <div style="height: 30px;"></div>
+            <span ng-if="item.$_label_laborHour">{{item.laborHour|number:1}}</span>
+            <number-field ng-if="!item.$_label_laborHour" grid-focus="!item.$_label_laborHour" min="0" max="999"
+                          ng-model="item.laborHour" decimal="1" select-all
+                          field-Class="form-control ccc-field textAlignRight laborHour" class="ccc-field"
+                          on-blur="appScope.afterCellEdit(item,'laborHour',item.laborHour,item._old_laborHour);appScope.changeCellLabelStatus(item, 'laborHour');"
+                          last-value="item._old_laborHour" ng-disabled="appScope.itemReadOnly"></number-field>
+          </div>
+        </td>
+        <!--折后维修费-->
+        <td ng-init="appScope.initGridColumn(item, 'laborFeeAfterDiscount');"
+            ng-click="appScope.changeCellEditStatus(item, 'laborFeeAfterDiscount');">
+          <div in-grid class="cell cell-right" title="{{item.laborFeeAfterDiscount|currency:''}}"
+               control-name="{{'laborFeeAfterDiscount_'+ item.estimateUnitId }}">
+            <div style="height: 30px;"></div>
+            <span ng-if="item.$_label_laborFeeAfterDiscount">{{item.laborFeeAfterDiscount|currency:''}}</span>
+            <number-field ng-if="!item.$_label_laborFeeAfterDiscount" grid-focus="!item.$_label_laborFeeAfterDiscount"
+                          min="0" max="9999999" ng-model="item.laborFeeAfterDiscount" decimal="2" select-all
+                          field-Class="form-control ccc-field textAlignRight laborFeeAfterDiscount" class="ccc-field"
+                          on-blur="appScope.afterCellEdit(item,'laborFeeAfterDiscount',item.laborFeeAfterDiscount,item._old_laborFeeAfterDiscount);appScope.changeCellLabelStatus(item, 'laborFeeAfterDiscount');"
+                          last-value="item._old_laborFeeAfterDiscount"></number-field>
+          </div>
+        </td>
+        <!--喷漆-->
+        <td ng-if="options.laborPaintVisible" ng-init="appScope.initGridColumn(item, 'paintLaborHour');"
+            ng-click="appScope.changeCellEditStatus(item, 'paintLaborHour');">
+          <div in-grid class="cell cell-right" title="{{item.paintLaborHour|number:1}}"
+               control-name="{{'paintLaborHour_'+ item.estimateUnitId }}">
+            <div style="height: 30px;"></div>
+            <span ng-if="item.$_label_paintLaborHour">{{item.paintLaborHour|number:1}}</span>
+            <number-field ng-if="!item.$_label_paintLaborHour" grid-focus="!item.$_label_paintLaborHour" min="0"
+                          max="999" ng-model="item.paintLaborHour" decimal="1"
+                          class="ccc-field" field-Class="form-control ccc-field textAlignRight paintLaborHour"
+                          on-blur="appScope.afterCellEdit(item,'paintLaborHour',item.paintLaborHour,item._old_paintLaborHour);appScope.changeCellLabelStatus(item, 'paintLaborHour');"
+                          last-value="item._old_paintLaborHour"
+                          ng-disabled="appScope.itemReadOnly"></number-field>
+          </div>
+        </td>
+        <!--折后喷漆费-->
+        <td ng-init="appScope.initGridColumn(item, 'paintFeeAfterDiscount');"
+            ng-click="appScope.changeCellEditStatus(item, 'paintFeeAfterDiscount');">
+          <div in-grid class="cell cell-right" title="{{item.paintFeeAfterDiscount|currency:''}}"
+               control-name="{{'paintFeeAfterDiscount_'+ item.estimateUnitId }}">
+            <div style="height: 30px;"></div>
+            <span ng-if="item.$_label_paintFeeAfterDiscount">{{item.paintFeeAfterDiscount|currency:''}}</span>
+            <number-field ng-if="!item.$_label_paintFeeAfterDiscount" grid-focus="!item.$_label_paintFeeAfterDiscount"
+                          min="0" max="9999999" ng-model="item.paintFeeAfterDiscount" decimal="2"
+                          field-Class="form-control ccc-field textAlignRight paintFeeAfterDiscount" class="ccc-field"
+                          on-blur="appScope.afterCellEdit(item,'paintFeeAfterDiscount',item.paintFeeAfterDiscount,item._old_paintFeeAfterDiscount)"
+                          last-value="item._old_paintFeeAfterDiscount"></number-field>
+          </div>
+        </td>
+        <!--回收-->
+        <td style="word-break:break-all;">
+          <div style="text-align: center">
+            <input type="checkbox" ng-model="item.recycleFlag"
+                   ng-change="appScope.afterCellEdit(item,'recycleFlag',item.recycleFlag,item._old_recycleFlag)"
+                   ng-click="appScope.changeSalvageAndDepreciation(item)"
+                   ng-disabled="appScope.itemReadOnly"
+                   ng-if="item.operationType == '01'"
+                   ng-true-value="'1'" ng-false-value="'0'"/>
+          </div>
+        </td>
+        <!--残值/折旧-->
+        <td>
+          <div in-grid class="cell cell-right"
+               title="{{(item.salvageAndDepreciation+0)==0 ?null:item.salvageAndDepreciation|currency:''}}"
+               control-name="{{'salvageAndDepreciation_'+ item.estimateUnitId }}">
+            <div style="height: 30px;"></div>
+            <span></span>
+
+            <div ng-bind-html="appScope.initSalvageAndDepreciaion(item)"></div>
+          </div>
+        </td>
+        <!--照片-->
+        <td style="word-break:break-all;">
+          <div style="text-overflow: clip;" class="ui-grid-cell-contents text-align-center estimateAttachmentSelector"
+               ng-bind-html="appScope.initAttachmentStyle(item, false)" in-grid
+               ng-click="appScope.bindClickAttachment(item,appScope.itemReadOnly)"
+               control-name="{{'claimItemAttachment_'+ item.estimateUnitId }}">
+          </div>
+        </td>
+        <!--备注-->
+        <td style="word-break:break-all;">
+          <div style="text-overflow: clip;" class="ui-grid-cell-contents text-align-center"
+               ng-bind-html="appScope.initRemarkStyle(item, false)"
+               ng-click="appScope.openLossItemRemark(item, appScope.itemReadOnly, appScope.global_readonly)">
+          </div>
+        </td>
+      </tr>
+
+      <tfoot class="bs-foot"
+             ng-repeat="item in ((rows | filter:enableCategory ? {category:'工时扣减'} : {category:'no-category'})[0].items | filter:{partCategoryId:'-2'})">
+      <tr class="labor-discounts-tr">
+        <td></td>
+        <td>
+                    <span class="totallossIco" title="差异" ng-if="appScope.isShowSnap(item)"
+                          ng-mouseenter="appScope.showItemSnapShot($event,item, true)"
+                          ng-mouseleave="appScope.hideItemSnapShot(true)"></span>
+          <span class="snapNewIco" title="新增" ng-if="appScope.isShowNewSnap(item)"></span>
+        </td>
+        <td class="labor-discounts-title" colspan='9'>{{item.itemName}}</td>
+        <td ng-if="options.laborPaintVisible" class="text-align-right">-{{item.deductionLaborHour | number:1}}
+        </td>
+        <td class="text-align-right">-{{item.deductionLaborFee | currency:''}}</td>
+        <td colspan="{{options.laborPaintVisible ? 7:5}}"></td>
+        <td>
+          <div class="ui-grid-cell-contents text-align-center"
+               ng-bind-html="appScope.initRemarkStyle(item, false)"
+               ng-click="appScope.openLossItemRemark(item, appScope.itemReadOnly, appScope.global_readonly)"></div>
+        </td>
+      </tr>
+    </tfoot>
+    </table>
+      <div class="subtotal" ng-if="appScope.claimItems.length>0">
+          <div class="fee">
+              <span style="font-size: 13px;">小计</span>
+              <span>配件金额：{{appScope.calculatePartAmount(appScope.claimItems, appScope.CLAIMMODEL.claimInfo.entireSalvage)|number:2}}</span>
+              <span>工时金额：{{appScope.calculateLabourAmount(appScope.claimItems)|number:2}}</span>
+              <span>辅料金额：{{appScope.calculateMaterialAmount(appScope.claimItems)|number:2}}</span>
+
+          </div>
+
+          <div class="discount">
+              <span ng-if="appScope.CLAIMMODEL.claimInfo.isClaim=='1' || appScope.CLAIMMODEL.claimInfo.isClaim=='2'">
+                  配件折扣率：{{appScope.CLAIMMODEL.repairFactoryInfo.manageRate|number:2}}%</span>
+              <span ng-if="appScope.CLAIMMODEL.claimInfo.isClaim=='1' || appScope.CLAIMMODEL.claimInfo.isClaim=='2'">
+                  工时折扣率：{{appScope.CLAIMMODEL.repairFactoryInfo.laborFeeManageRate|number:2}}%</span>
+              <span>机电：{{appScope.CLAIMMODEL.repairFactoryInfo.electricianMachinistRate}}(元/小时)</span>
+              <span>钣金：{{appScope.CLAIMMODEL.repairFactoryInfo.sheetMetalRate}}(元/小时)</span>
+              <span>喷漆：{{appScope.CLAIMMODEL.repairFactoryInfo.paintRate}}(元/小时)</span>
+          </div>
+      </div>
+  </div>
+  <div id="ignoreRightClickEle" style="display:none"></div>
+</div>

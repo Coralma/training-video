@@ -1,0 +1,89 @@
+<nav class="navbar navbar-default navbar-fixed-top" style="width: auto;">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <div class="navbar-header animated tada">
+                <a class="navbar-brand" href="#top"><img src="img/dashboard-logo.png" width="185px" alt=""></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbarhead">
+                <ul class="nav navbar-nav navbar-left animated slideInDown" style="margin-left: 15px;">
+                    <li>
+                        <a class="brand-label" ng-click="showSelectedCategory(99);">全部视频</a>
+                    </li>
+                    <li>
+                        <a class="brand-label" ng-click="showSelectedCategory(1);">开发视频分类</a>
+                    </li>
+                    <li>
+                        <a class="brand-label"  ng-click="showSelectedCategory(2);">测试视频分类</a>
+                    </li>
+                    <li>
+                        <a class="brand-label"  ng-click="showSelectedCategory(3);">业务视频分类</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right animated tada" style="margin-left: -25px;margin-right: -20px;" >
+                    <li><a ng-click="showValidateDialog()"><span class="glyphicon glyphicon-sunglasses home-icon" aria-hidden="true"></span></a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+</nav>
+
+<div class="header-placeholder"></div>
+<div class="list-content" ng-show="showCategory" >
+    <div ng-show="devCategory == 1">
+        <div class="section-title animated fadeIn">
+            <span class="glyphicon glyphicon-list list-data"></span>开发视频分类
+        </div>
+        <div class="section-item animated fadeInDown" ng-repeat="video in devVideoList track by $index" ng-click="showVideo(video)" style="animation-delay:{{(200 * $index)+ 'ms'}};">
+            <span class="glyphicon glyphicon-facetime-video list-data"></span>{{ video.name }}
+        </div>
+    </div>
+    <div ng-show="testCategory == 1">
+        <div class="section-title animated fadeIn">
+            <span class="glyphicon glyphicon-list list-data"></span>测试视频分类
+        </div>
+        <div class="section-item animated fadeInDown" ng-repeat="video in testVideoList track by $index" ng-click="showVideo(video)" style="animation-delay:{{(200 * $index)+ 'ms'}};">
+            <span class="glyphicon glyphicon-facetime-video list-data"></span>{{ video.name }}
+        </div>
+    </div>
+    <div ng-show="bizCategory == 1">
+        <div class="section-title animated fadeIn">
+            <span class="glyphicon glyphicon-list list-data"></span>业务视频分类
+        </div>
+        <div class="section-item animated fadeInDown" ng-repeat="video in bizVideoList track by $index" ng-click="showVideo(video)" style="animation-delay:{{(200 * $index)+ 'ms'}};">
+            <span class="glyphicon glyphicon-facetime-video list-data"></span>{{ video.name }}
+        </div>
+    </div>
+</div>
+
+<div class="video-content" ng-if="!showCategory">
+    <div class="video-title animated flipInY">{{selectedVideoTitle}}</div>
+    <video id="player" class="gen-bg animated flipInY" autobuffer autoplay controls
+           width="850px" webkit-playsinline="true" playsinline="true" x5-video-player-type="h5"
+           x5-video-orientation="h5" x5-video-player-fullscreen="true">
+        <source ng-src="{{videoUrl(selectedVideo)}}" type="video/mp4">
+    </video>
+    <div class="video-btn-div">
+        <button type="button" class="btn btn-info video-btn-back" ng-click="backToCategory()">返&nbsp;&nbsp;&nbsp;&nbsp;回</button>
+    </div>
+</div>
+
+
+<div ng-if="showDialogFlag">
+    <div id="popup-image">
+        <div class="image-related-div animated flipInX">
+            <span class="video-edit-title">超级用户登录密码</span>
+            <div><span style="color:red;float: left">&nbsp;{{ errorMsg }}</span></div>
+            <div class="input-group video-input-group">
+                <span class="input-group-addon video-input-name" id="password">密码</span>
+                <input type="password" class="form-control video-input" aria-describedby="password"  ng-model="adminPassword">
+            </div>
+            <div class="">
+                <button type="button" class="btn btn-info video-btn-submit" ng-click="validate(adminPassword)">提&nbsp;&nbsp;&nbsp;&nbsp;交</button>
+                <button type="button" class="btn btn-info video-btn-back" ng-click="cancel()">取&nbsp;&nbsp;&nbsp;&nbsp;消</button>
+            </div>
+        </div>
+    </div>
+</div>
