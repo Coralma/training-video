@@ -16,4 +16,3 @@ hs_err_pid*
 *.iml
 
 target/
-src/main/webapp/lib/
